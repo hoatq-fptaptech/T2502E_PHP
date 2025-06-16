@@ -33,11 +33,14 @@
 <body>
     <div class="container">
     <h1>Danh sách sinh viên:</h1>
+    <a href="form_student.php">Thêm sinh viên</a>
     <table class="table">
         <thead>
             <th>Name</th>
             <th>Age</th> 
             <th>Telephone</th>
+            <th></th>
+            <th></th>
         </thead>
         <tbody>
             <?php foreach($list as $s):?>
@@ -45,6 +48,8 @@
                 <td><?php echo $s["name"];?></td>
                 <td><?php echo $s["age"];?></td>
                 <td><?php echo $s["telephone"];?></td>
+                <td><a href="/edit_student.php?id=<?php echo $s["id"]; ?>">Sửa</a></td>
+                <td><a onclick="return confirm('Bạn chắc chắn muốn xoá SV: <?php echo $s['name']; ?>')" href="/delete_student.php?id=<?php echo $s["id"]; ?>">Xoá</a></td>
             </tr>
             <?php endforeach;?>
         </tbody>
